@@ -1,20 +1,15 @@
 #!/usr/bin/python3
+"""Module to determine if a list of boxes contain keys to other boxes"""
+
 
 def canUnlockAll(boxes):
-    """
-    Determines if all boxes can be opened.
-    """
-    unlocked_boxes = set([0])
+    """Function to determine keys from list of boxes"""
 
-    key_queue = boxes[0].copy()
-
-    while key_queue:
-        key = key_queue.pop(0)
-
-        if key in unlocked_boxes:
-            continue
-        unlocked_boxes.add(key)
-
-        key_queue.extend(boxes[key])
-
-    return len(unlocked_boxes) == len(boxes)
+    for key in range(1, len(boxes) - 1):
+        visited = False
+        for box_index in range(len(boxes)):
+            visited = key in boxes[box_index] and key != box_index
+            if visited:
+                break
+        if visited is False:
+            return True
