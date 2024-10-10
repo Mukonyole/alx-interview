@@ -1,15 +1,25 @@
 #!/usr/bin/python3
-"""Module to determine if a list of boxes contain keys to other boxes"""
+"""
+Lockboxes problem solution.
+"""
 
 
 def canUnlockAll(boxes):
-    """Function to determine keys from list of boxes"""
+    """
+    Determines if a series of locked boxes can be opened
+    based on keys.
+    """
+    if (type(boxes)) is not list:
+        return False
+    elif (len(boxes)) == 0:
+        return False
 
-    for key in range(1, len(boxes) - 1):
-        visited = False
-        for box_index in range(len(boxes)):
-            visited = key in boxes[box_index] and key != box_index
-            if visited:
+    for k in range(1, len(boxes) - 1):
+        boxes_checked = False
+        for idx in range(len(boxes)):
+            boxes_checked = k in boxes[idx] and k != idx
+            if boxes_checked:
                 break
-        if visited is False:
-            return True
+        if boxes_checked is False:
+            return boxes_checked
+    return True
