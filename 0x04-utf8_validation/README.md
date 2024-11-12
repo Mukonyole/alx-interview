@@ -1,0 +1,1 @@
+UTF-8 validation is the process of ensuring that a sequence of bytes follows the rules of UTF-8 encoding. UTF-8 is a character encoding standard that's used to represent Unicode characters in computers. It's the most common encoding on the internet and in many programming languages.
